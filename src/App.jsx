@@ -9,7 +9,7 @@ import {
 import { 
   Container,
   Table, TableBody, TableCell,
-  TableContainer, TableRow, Paper
+  TableContainer, TableRow, Paper, TextField, Button
 } from '@mui/material'
 
 const Home = () => (
@@ -76,14 +76,16 @@ const Login = (props) => {
       <h2>Login</h2>
       <form onSubmit={onSubmit}>
         <div>
-          username
-          <input />
+          <TextField label='username' />
         </div>
         <div>
-          password
-          <input type="password" />
+          <TextField label='password' type='password' style={{ margin: '1em 0em' }} />
         </div>
-        <button type="submit">login</button>
+        <div>
+          <Button variant='contained' color='primary' type='submit'>
+            login
+          </Button>
+        </div>
       </form>
     </div>
   )
