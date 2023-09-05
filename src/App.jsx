@@ -10,7 +10,10 @@ import {
   Container,
   Table, TableBody, TableCell,
   TableContainer, TableRow, Paper, TextField, Button,
-  Alert
+  Alert,
+  AppBar,
+  Toolbar,
+  IconButton
 } from '@mui/material'
 
 const Home = () => (
@@ -141,7 +144,31 @@ function App() {
           </Alert>
         )}
       </div>
-      <div>
+
+      <AppBar position='static'>
+        <Toolbar>
+          <IconButton edge='start' color='inherit' aria-label='menu'>
+          </IconButton>
+          <Button color='inherit'>
+            <Link to='/'>home</Link>
+          </Button>
+          <Button color='inherit'>
+            <Link to='/notes'>notes</Link>
+          </Button>
+          <Button color='inherit'>
+            <Link to='/users'>users</Link>
+          </Button>
+          <Button color='inherit'>
+            { user
+              ? <em>{ user } logged in</em>
+              : <Link to='/login'>login</Link>
+            }
+          </Button>
+
+        </Toolbar>
+      </AppBar>
+
+      {/* <div>
         <Link style={padding} to='/'>home</Link>
         <Link style={padding} to='/notes'>notes</Link>
         <Link style={padding} to='/users'>users</Link>
@@ -149,7 +176,7 @@ function App() {
           ? <em>{ user } logged in</em>
           : <Link style={padding} to='/login'>login</Link>
         }
-      </div>
+      </div> */}
 
       <Routes>
         <Route path='/notes/:id' element={ <Note note={note} /> } />
